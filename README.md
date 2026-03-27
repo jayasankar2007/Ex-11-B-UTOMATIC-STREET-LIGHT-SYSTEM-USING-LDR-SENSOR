@@ -10,6 +10,9 @@ Tinker CAD tool (Online)
 Arduino UNO Board/ESP-32
 
 Photoresistor
+## CIRCUIT DIAGRAM
+<img width="752" height="423" alt="image" src="https://github.com/user-attachments/assets/cdc717bb-bc8e-4608-881d-011e4a546717" />
+
 ## Theory :
 The Arduino Uno is powered by the ATmega328P, an 8-bit microcontroller that runs at 16 MHz. It has 32 KB of flash memory, 2 KB of SRAM, and 1 KB of EEPROM. The board has 14 digital I/O pins (of which 6 can be used as PWM outputs) and 6 analog input pins. These pins allow the board to interface with various sensors, actuators, and other devices.The Arduino Uno can be powered via a USB connection or an external power supply. The board has a built-in voltage regulator to manage power from 7 to 12 volts.
 
@@ -64,6 +67,38 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 •	Stop Simulation: Click "Stop Simulation" to end the simulation.
 
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
+## PROGRAM 
+```
+
+const int LEDPin=13;
+const int LDRPin=A0;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(LEDPin,OUTPUT);
+  pinMode(LDRPin,INPUT);
+}
+void loop()
+{
+  int LDRStatus=analogRead(LDRPin);
+  if(LDRStatus<=500)
+  {
+    digitalWrite(LEDPin,HIGH);
+    Serial.print("Current Light Intensity Value is -");
+    Serial.println(LDRStatus);
+  }
+  else
+  {
+    digitalWrite(LEDPin, LOW);
+    Serial.print("Current Light Intensity Value is -");
+    Serial.println(LDRStatus);
+  }
+}
+
+```
+## OUTPUT
+<img width="751" height="435" alt="image" src="https://github.com/user-attachments/assets/5b718e3f-b8a9-4a3f-a14c-67b56ce80b0e" />
+
 
 ### Result: 
 Thus measure the LDR Sensor using Photoresistor with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully
